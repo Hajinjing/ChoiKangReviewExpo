@@ -1,5 +1,9 @@
 export const ContentRoutes = {
     HOME : 'Home',
-    MYPAGE : 'MyPage',
-    WRITE : 'Write'
+    MY_PAGE : 'MyPage',
+    WRITE : 'Write',
+}
+
+export const MainRoutes = {
+    CONTENT_TAB: 'ContentTab',
 }
