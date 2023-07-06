@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import React from 'react';
 import WriteScreen from "../screens/WriteScreen";
 import {MaterialCommunityIcons} from "@expo/vector-icons";
+import TabBarAddButton from "../components/TabBarAddButton";
 
 const Tab = createBottomTabNavigator();
 
@@ -14,6 +15,8 @@ const getTabBarIcon = ({ focused, color, size, name }) => {
         <MaterialCommunityIcons name={iconName} size={size} color={color} />
     );
 };
+
+const AddButtonScreen = () => null
 
 const ContentTab = () => {
     return (
@@ -33,10 +36,15 @@ const ContentTab = () => {
                 }}
             />
             <Tab.Screen
-                name={ContentRoutes.WRITE}
-                component={WriteScreen}
-                options={{}}
+                name={'AddButton'}
+                component={AddButtonScreen}
+                options={{tabBarButton: () => <TabBarAddButton/>}}
             />
+            {/*<Tab.Screen*/}
+            {/*    name={ContentRoutes.WRITE}*/}
+            {/*    component={WriteScreen}*/}
+            {/*    options={{}}*/}
+            {/*/>*/}
             <Tab.Screen
                 name={ContentRoutes.MY_PAGE}
                 component={MyPageScreen}
