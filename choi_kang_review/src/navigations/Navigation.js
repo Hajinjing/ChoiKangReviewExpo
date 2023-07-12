@@ -14,26 +14,26 @@ const ImageAssets = [
 
 const Navigation = () => {
 
-    useEffect(()=>{
-        (async ()=>{
-            try {
-                await SplashScreen.preventAutoHideAsync();
-
-                await Promise.all(
-                    ImageAssets.map((image)=>
-                        Asset.fromModule(image).downloadAsync()
-                        )
-                );
-            } catch (e) {
-
-            }
-        })();
-    });
+    // useEffect(()=>{
+    //     (async ()=>{
+    //         try {
+    //             await SplashScreen.preventAutoHideAsync();
+    //
+    //             await Promise.all(
+    //                 ImageAssets.map((image)=>
+    //                     Asset.fromModule(image).downloadAsync()
+    //                     )
+    //             );
+    //         } catch (e) {
+    //
+    //         }
+    //     })();
+    // });
 
     return (
         <NavigationContainer>
-            {/*<MainStack/>*/}
-            <AuthStack/>
+            <MainStack/>
+            {/*<AuthStack/>*/}
         </NavigationContainer>
     );
 };
