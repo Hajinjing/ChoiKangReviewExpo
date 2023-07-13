@@ -6,6 +6,6 @@ export const PRIMARY = {
 }
 
 
-export const GREY = {
+export const GRAY = {
     DEFAULT: '#a3a3a3',
 }

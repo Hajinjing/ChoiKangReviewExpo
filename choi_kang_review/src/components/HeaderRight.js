@@ -1,7 +1,7 @@
 import {MaterialCommunityIcons} from "@expo/vector-icons";
 import {Pressable} from "react-native";
 import PropTypes from "prop-types";
-import {GREY, PRIMARY} from "../colors";
+import {GRAY, PRIMARY} from "../colors";
 
 const HeaderRight = ({disabled, onPress}) => {
     return (
@@ -9,7 +9,7 @@ const HeaderRight = ({disabled, onPress}) => {
             <MaterialCommunityIcons
                 name={"check"}
                 size={24}
-                color={disabled ? GREY.DEFAULT : PRIMARY.DEFAULT}/>
+                color={disabled ? GRAY.DEFAULT : PRIMARY.DEFAULT}/>
         </Pressable>
     );
 };
