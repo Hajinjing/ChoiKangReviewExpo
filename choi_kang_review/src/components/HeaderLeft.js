@@ -9,7 +9,10 @@ const HeaderLeft = () => {
     const navigation = useNavigation();
 
     return (
-        <Pressable onPress={()=> navigation.goBack && navigation.canGoBack()} hitSlop={10}>
+        <Pressable
+            hitSlop={10}
+            onPress={()=> navigation.goBack() && navigation.canGoBack()}
+        >
             <MaterialCommunityIcons
                 name={"chevron-left"}
                 size={38}

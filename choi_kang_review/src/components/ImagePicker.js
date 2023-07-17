@@ -1,10 +1,7 @@
-import {useNavigation, useNavigationState} from "@react-navigation/native";
-import {useCallback, useEffect, useLayoutEffect, useRef, useState} from "react";
-import {Alert, StyleSheet, View, FlatList, Image, Pressable, useWindowDimensions, Platform} from "react-native";
-import HeaderRight from "../components/HeaderRight";
+import {useNavigation} from "@react-navigation/native";
+import {useCallback, useEffect, useRef, useState} from "react";
+import {Alert, StyleSheet, View, FlatList} from "react-native";
 import * as MediaLibrary from 'expo-media-library';
-import {MaterialCommunityIcons} from "@expo/vector-icons";
-import {PRIMARY} from "../colors";
 import PhotoItem from "./PhotoItem";
 
 const initialListInfo = {endCursor: '', hasNextPage: true};

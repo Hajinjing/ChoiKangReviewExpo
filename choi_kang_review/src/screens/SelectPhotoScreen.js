@@ -1,12 +1,13 @@
 import {useNavigation, useRoute} from '@react-navigation/native'
-import {Alert, Button, Platform, Pressable, StyleSheet, Text, useWindowDimensions, View} from "react-native";
+import {Alert, Platform, Pressable, StyleSheet, Text, useWindowDimensions, View, Image} from "react-native";
 import {MainRoutes} from "../navigations/routes";
-import Constants from "expo-constants";
 import {MaterialCommunityIcons} from "@expo/vector-icons";
 import {GRAY} from "../colors";
 import {useCallback, useEffect, useLayoutEffect, useState} from "react";
 import {getLocalUri} from "../components/ImagePicker";
 import HeaderRight from "../components/HeaderRight";
+import Swiper from 'react-native-swiper';
+import ImageSwiper from "../components/ImageSwiper";
 
 const SelectPhotoScreen = () => {
     const navigation = useNavigation();
@@ -41,7 +42,6 @@ const SelectPhotoScreen = () => {
                         })
                     )
                 )
-                console.log(localUris);
             } catch (e) {
                 Alert.alert('사진 정보 조회 실패', e.message);
             }
@@ -60,26 +60,25 @@ const SelectPhotoScreen = () => {
     return (
         <View style={styles.container}>
             <Text style={styles.description}>
-                이미지는 최대 4장까지 선택 가능합니다.
+                상품의 사진을 올려주세요(2장) {disabled}
             </Text>
             <View style={{width, height:width}}>
-                <Pressable
-                    style={styles.photoButton}
-                    onPress={()=>
-                        navigation.navigate(MainRoutes.IMAGE_PICKER, {maxCount: 4})
-                    }
-                >
-                <MaterialCommunityIcons
-                    name={"image-plus"}
-                    size={80}
-                />
-                </Pressable>
-
+                {photos.length ? (
+                    <ImageSwiper photos={photos}/>
+                ) : (
+                    <Pressable
+                        style={styles.photoButton}
+                        onPress={()=>
+                            navigation.navigate(MainRoutes.IMAGE_PICKER, {maxCount: 4})
+                        }
+                    >
+                        <MaterialCommunityIcons
+                            name={"image-plus"}
+                            size={80}
+                        />
+                    </Pressable>
+                )}
             </View>
-            <Button
-                title={"Tab"}
-                onPress={()=>navigation.navigate(MainRoutes.CONTENT_TAB)}
-            />
         </View>
     );
 };
@@ -101,6 +100,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: GRAY
+    },
+    photo: {
+        width: '100%',
+        height: '100%'
     }
 
 });

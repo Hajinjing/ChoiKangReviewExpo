@@ -15,10 +15,6 @@ const HomeScreen = () => {
         <View style={styles.container}>
             <Header />
             <Text>Home</Text>
-            <Button
-                title={"Select"}
-                onPress={()=>navigation.navigate(MainRoutes.SELECT_PHOTOS)}
-            />
         </View>
     );
 };
